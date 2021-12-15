@@ -237,6 +237,9 @@ class PSCWS4 {
                 if (!$this->_is_alnum($cx)) break;
                 $pflag &= ~PSCWS4_PFLAG_VALID;
                 for ($i = $off + 1; $i < ($off + 3); $i++) {
+                    if (!isset($txt[$i])){
+                        break;
+                    }
                     $ch = $txt[$i];
                     $cx = ord($ch);
                     if (($i >= $len) || ($cx <= 0x20) || ($this->_ztab[$cx] > 1)) {

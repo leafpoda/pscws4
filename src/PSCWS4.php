@@ -550,13 +550,13 @@ class PSCWS4 {
                     $cx = ord($ch);
                     if ($pflag & PSCWS4_PFLAG_DIGIT) {
                         if (!$this->_is_digit($cx)) {
-                            if (($pflag & PSCWS4_PFLAG_ADDSYM) || $cx != 0x2e || !$this->_is_digit(ord($txt[$start + 1])))
+                            if (($pflag & PSCWS4_PFLAG_ADDSYM) || $cx != 0x2e || !isset($txt[$start + 1]) || !$this->_is_digit(ord($txt[$start + 1])))
                                 break;
                             $pflag |= PSCWS4_PFLAG_ADDSYM;
                         }
                     } else {
                         if (!$this->_is_alpha($cx)) {
-                            if (($pflag & PSCWS4_PFLAG_ADDSYM) || $cx != 0x27 || !$this->_is_alpha(ord($txt[$start + 1])))
+                            if (($pflag & PSCWS4_PFLAG_ADDSYM) || $cx != 0x27 || !isset($txt[$start + 1]) || !$this->_is_alpha(ord($txt[$start + 1])))
                                 break;
                             $pflag |= PSCWS4_PFLAG_ADDSYM;
                         }
